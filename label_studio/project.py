@@ -477,6 +477,10 @@ class Project(object):
                 times[id] = timestamp_to_local_datetime(latest_time).strftime('%Y-%m-%d %H:%M:%S')
         return times
 
+    def get_skipped_count(self):
+        skipped_statuses =self.get_skipped_status()
+        return sum([s for s in skipped_statuses if s > 0])
+
     def get_skipped_status(self):
         """ Get skipped status for tasks: returns skipped completion number for task
 
@@ -885,6 +889,7 @@ class Project(object):
             'project_name': project.name,
             'task_count': len(project.source_storage.ids()),
             'completion_count': len(project.get_completions_ids()),
+            'skipped_count': project.get_skipped_count(),
             'config': project.config,
             'can_manage_tasks': project.can_manage_tasks,
             'can_manage_completions': project.can_manage_completions,

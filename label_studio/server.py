@@ -233,6 +233,23 @@ def tasks_page():
     )
 
 
+@app.route('/dm', methods=['GET', 'POST'])
+@requires_auth
+@exception_treatment_page
+def dm_page():
+    project = project_get_or_create()
+    serialized_project = project.serialize()
+    serialized_project['multi_session_mode'] = input_args.command != 'start-multi-session'
+    project.analytics.send(getframeinfo(currentframe()).function)
+    return flask.render_template(
+        'dm.html',
+        config=project.config,
+        project=project,
+        serialized_project=serialized_project,
+        **find_editor_files()
+    )
+
+
 @app.route('/setup')
 @requires_auth
 @exception_treatment_page

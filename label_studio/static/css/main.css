@@ -132,16 +132,17 @@ a {
     background-color: #fff;
     display: flex;
     align-items: center;
-    padding: 10px 20px 10px 40px;
+    padding: 10px 20px 10px 20px;
     position: relative;
     z-index: 100;
     box-shadow: rgba(0, 0, 0, 0.15) 0 2px 3px 0;
     margin-bottom: 3em;
+    height: 60px;
 }
 
 #logo {
-    font-size: 1.5em;
-    line-height: 40px;
+    font-size: 1.4em;
+    line-height: 30px;
     color: #273849;
     font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
@@ -150,9 +151,10 @@ a {
 
 .img-logo {
     vertical-align: middle;
-    margin-right: 6px;
-    width: 40px;
-    height: 40px;
+    margin-right: 0.5em;
+    width: 30px;
+    height: 30px;
+
 }
 
 .img-text {
