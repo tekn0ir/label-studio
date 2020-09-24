@@ -226,7 +226,7 @@ const LSF_SDK = function(elid, config, task, hide_skip) {
 
   var LS = new LabelStudio(elid, {
     config: config,
-    user: { pk: 1, firstName: "Awesome", lastName: "User" },
+    user: { pk: 1, firstName: "", lastName: "" },
 
     task: _convertTask(task),
     interfaces: interfaces,
