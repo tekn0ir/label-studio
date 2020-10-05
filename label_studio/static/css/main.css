@@ -3,9 +3,9 @@ html {
 }
 
 body {
-    background: #fcfcfc;
-    font-family: Rubik, sans-serif;
-    color: #333;
+    background: #1e2023;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji';
+    color: #ddd;
 }
 
 table {
@@ -117,7 +117,7 @@ a {
 }
 
 #header {
-    background-color: #fff;
+    background-color: #1e2023;
     display: flex;
     align-items: center;
     padding: 5px 20px 5px 40px;
@@ -130,8 +130,8 @@ a {
 #logo {
     font-size: 1.5em;
     line-height: 40px;
-    color: #273849;
-    font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    color: #ddd;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji';
     font-weight: 500;
     display: flex;
 }
@@ -140,8 +140,8 @@ a {
     vertical-align: middle;
     margin-right: 5px;
     margin-top: 5px;
-    width: 30px;
-    height: 30px;
+    /*width: 200px;*/
+    height: 18px;
 }
 
 .img-text {
@@ -161,8 +161,8 @@ a {
 }
 
 #nav a {
-    color: #797979;
-    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    color: #ddd;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji';
     margin-right: 2em;
     font-size: 14px;
 
@@ -173,13 +173,13 @@ a {
 
 #nav a:hover {
     transition: border-bottom-color 0.25s ease-in-out;
-    border-bottom: 3px #2493FB solid;
+    border-bottom: 3px #fff solid;
 }
 
 #nav a.active {
-    color: #2493FB;
+    color: #fff;
     transition: border-bottom-color 0.25s ease-in-out;
-    border-bottom: 3px #2493FB solid;
+    border-bottom: 3px #fff solid;
 }
 
 #nav .outside-links, #nav .outside-links:hover {
@@ -189,7 +189,7 @@ a {
 }
 .outside-links {
     transition: opacity 0.25s ease-in-out !important;
-    color: #444 !important;
+    color: #fff !important;
     opacity: 0.7;
 }
 .outside-links:hover {
@@ -256,6 +256,7 @@ div.task-buttons .button {
 
 /* editor width */
 #label-studio {
+    background-color: #1e2023 !important;
     width: 100%;
     max-width: 1440px;
     padding-left: 1em;
@@ -339,7 +340,12 @@ div[class*="App_editor"] {
 
 /* semantic ui pretty */
 
+.ui .content {
+    background-color: #1E2023 !important;
+}
+
 .ui .segment {
+    color: #ddd !important;
     box-shadow: none !important;
 }
 
@@ -348,13 +354,13 @@ div[class*="App_editor"] {
     transition: background-color ease-in-out 0.25s, border ease-in-out 0.5s;
 }
 .ui .button.positive {
-    background: rgb(24, 144, 255) !important;
-    color: #fff !important;
-    border-color: rgb(24, 144, 255) !important;
+    background: #26272c !important;
+    color: #ddd !important;
+    border-color: #1E2023 !important;
     transition: background-color ease-in-out 0.25s;
 }
 .ui .button.positive:hover {
-    background: rgb(54, 162, 255) !important;
+    background: #fff !important;
     transition: background-color ease-in-out 0.25s;
 }
 .ui .button {
@@ -365,15 +371,19 @@ div[class*="App_editor"] {
 }
 
 .ui h3 {
+    color: #ddd !important;
     font-weight: 400;
 }
 
 .ui .accordion .title {
+    color: #ddd !important;
     font-size: 16px !important;
 }
 
 .ui .message {
+    color: #ddd !important;
     background: none !important;
+    border-color: none !important;
     box-shadow: 0 0 0 1px rgba(34, 36, 38, .15) !important;
 }
 
@@ -395,11 +405,29 @@ div[class*="App_editor"] {
 
 .ui ul.list li::before {
     content: "\2022";
-    color: rgba(0, 0, 0, 0.4) !important;
+    color: #ddd !important;
 }
 
 .ui .label.basic {
     font-weight: normal;
+}
+
+.ui.label {
+    background-color: #2c2c30 !important;
+}
+
+.ui.menu {
+    color: #ddd;
+    background: #2c2c30 !important;
+    border: 1px solid #2c2c30;
+}
+
+.ui.menu .item {
+    color: #ddd !important;
+}
+
+.ui.ui.menu .item.disabled {
+    color: #1E2023 !important;
 }
 
 .ui .x.icon {
@@ -412,9 +440,13 @@ div[class*="App_editor"] {
 }
 
 .ui.modal {
+    background-color: #1e2023 !important;
+    color: #ddd !important;
     box-shadow: none !important;
 }
 .ui.modal>.header {
+    background-color: #1e2023 !important;
+    color: #ddd !important;
     font-weight: normal !important;
     background: none;
 }
@@ -428,7 +460,13 @@ div[class*="App_editor"] {
 }
 
 .ui.form label {
+    color: #ddd !important;
     font-weight: normal !important;
+}
+
+.ui.action.input input {
+    color: #ddd !important;
+    background-color: #2c2c30 !important;
 }
 
 .ui.dimmer {
@@ -483,7 +521,7 @@ pre {
     top: 2px;
     cursor: pointer;
     font-size: 0.75em;
-    color: rgb(24, 144, 255);
+    color: #fff;
     transition: background-color ease-in-out 0.25s;
 }
 .sup-button.big {
@@ -491,7 +529,7 @@ pre {
 }
 
 .sup-button:hover {
-    color: rgb(54, 162, 255);
+    color: #fff;
     transition: background-color ease-in-out 0.25s;
 }
 
@@ -501,7 +539,7 @@ pre {
         font-size: 1.5em;
         line-height: 40px;
         color: #273849;
-        font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+        font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji';
         font-weight: 500;
         display: inline-flex;
         margin-left: 10px;

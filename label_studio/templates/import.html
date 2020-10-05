@@ -10,6 +10,22 @@
     <div class="ui large text loader orange">Importing in progress ...</div>
   </div>
 
+    <!-- Cloudstorage form -->
+    <div class="ui form">
+        <input id="file-input" type="file" name="file" multiple onchange="send_data(event)" style="display: none"/>
+
+        <div class="ui content">
+            <div id="holder">
+                <div class="text">
+                    <i class="ui icon huge upload"></i>
+                    <p>Drag and drop your files here or click for import</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+
   <!-- Input file form -->
   <div class="ui form">
     <input id="file-input" type="file" name="file" multiple onchange="send_data(event)" style="display: none"/>

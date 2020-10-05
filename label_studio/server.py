@@ -155,6 +155,13 @@ def send_static(path):
     static_dir = find_dir('static')
     return flask.send_from_directory(static_dir, path)
 
+@app.route('/cloudstorage/<path:path>')
+@requires_auth
+def send_cloudstorage(path):
+    """ Static serving
+    """
+    static_dir = os.path.abspath('/cloudstorage')
+    return flask.send_from_directory(static_dir, path)
 
 @app.errorhandler(ValidationError)
 def validation_error_handler(error):

@@ -1,13 +1,20 @@
 version: "3"
 
-services: 
+services:
   label-studio:
     container_name: label-studio
-    build: .
-    working_dir: /label-studio
+    build:
+        context: .
+        dockerfile: amd64.Dockerfile
     volumes:
-      - ./my_project:/label-studio/my_project
-    command: "label-studio start my_project ${INIT_COMMAND} --host 0.0.0.0"
-    ports: 
-      - "8080:8080"
+      - ./cloudstorage:/cloudstorage
+      - ./data:/data
+#    command:
+#    - /bin/bash
+#    - -c
+#    - |
+#        label-studio init ${PROJECT_NAME:-annotation_project}
+#        label-studio start ${PROJECT_NAME:-annotation_project} ${INIT_COMMAND} -b --host 0.0.0.0 --port ${PORT:-8888}
+    ports:
+      - "8888:8888"
     restart: always
