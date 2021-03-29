@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
     | tee /etc/apt/sources.list.d/gcsfuse.list \
   && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
   && apt-get update \
-  && apt-get install --yes gcsfuse \
+  && apt-get install --yes gcsfuse=0.30.0 \  # Bump version when -o noempty i removed in devstudio-controller
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN mkdir /cloudstorage
 

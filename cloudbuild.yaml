@@ -1,54 +1,20 @@
+timeout: '3600s'
+
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'amd64'
-    args:
-      - 'build'
-      - '-t'
-      - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:amd64'
-      - '-f'
-      - './amd64.Dockerfile'
-      - '.'
+    - name: 'gcr.io/cloud-builders/docker'
+      args:
+          - 'build'
+          - '-t'
+          - 'gcr.io/${PROJECT_ID}/annotationstudio:${SHORT_SHA}'
+          - '-f'
+          - './amd64.Dockerfile'
+          - '.'
 
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'push-amd64'
-    args:
-      - 'push'
-      - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:amd64'
-    waitFor: ['amd64']
+    - name: 'gcr.io/cloud-builders/docker'
+      args:
+          - 'tag'
+          - 'gcr.io/${PROJECT_ID}/annotationstudio:${SHORT_SHA}'
+          - 'gcr.io/${PROJECT_ID}/annotationstudio:latest'
 
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'manifest'
-    env:
-      - 'DOCKER_CLI_EXPERIMENTAL=enabled'
-    args:
-      - 'manifest'
-      - 'create'
-      - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:latest' # $COMMIT_SHA'
-      - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:amd64'
-    waitFor: ['push-amd64']
-
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'annotate-manifest-amd64'
-    env:
-      - 'DOCKER_CLI_EXPERIMENTAL=enabled'
-    args:
-      - 'manifest'
-      - 'annotate'
-      - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:latest'
-      - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:amd64'
-      - '--os=linux'
-    waitFor: ['manifest']
-
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'push-manifest'
-    env:
-      - 'DOCKER_CLI_EXPERIMENTAL=enabled'
-    args:
-      - 'manifest'
-      - 'push'
-      - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:latest'
-    waitFor: ['annotate-manifest-amd64']
-
-
-images:
-  - 'gcr.io/$PROJECT_ID/annotationstudio-cloud:amd64'
+images: ['gcr.io/${PROJECT_ID}/annotationstudio:${SHORT_SHA}',
+         'gcr.io/${PROJECT_ID}/annotationstudio:latest']
